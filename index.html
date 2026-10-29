@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Welcome to Paula's professional student portfolio showcasing her skills, projects, and journey in web development.">
+
+    <title>Paula | Student & Web Developer</title>
+
+    <style>
+        :root {
+            --burgundy: #6b1d2e;
+            --burgundy-dark: #4a1420;
+            --burgundy-light: #8b2740;
+            --pastel-pink: #f9dce3;
+            --pastel-pink-soft: #fdf0f3;
+            --background: #fff7f9;
+            --text: #4a2833;
+            --muted: #8a6870;
+            --white: #ffffff;
+            --border: #f0d4dc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--white);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+
+        header {
+            background: rgba(255, 255, 255, 0.97);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            min-height: 76px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--burgundy);
+        }
+
+        .logo span {
+            color: var(--burgundy-light);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .nav-links a {
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--burgundy-light);
+        }
+
+        /* Hero Section */
+
+        .hero {
+            padding: 105px 0 100px;
+            background:
+                radial-gradient(
+                    circle at 85% 15%,
+                    var(--pastel-pink) 0,
+                    transparent 32%
+                ),
+                linear-gradient(135deg, #fff7f9, var(--pastel-pink-soft));
+        }
+
+        .hero-content {
+            max-width: 790px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 6px 14px;
+            background: var(--pastel-pink);
+            color: var(--burgundy);
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 24px 0 20px;
+            color: var(--burgundy);
+            font-size: clamp(2.7rem, 7vw, 5rem);
+            line-height: 1.12;
+            letter-spacing: -2px;
+        }
+
+        h1 span {
+            color: var(--burgundy-light);
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: var(--muted);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 23px;
+            background: var(--burgundy);
+            color: var(--white);
+            border: 1px solid var(--burgundy);
+            border-radius: 8px;
+            font-weight: 700;
+            margin: 4px 8px 4px 0;
+            transition: all 0.25s ease;
+        }
+
+        .button:hover {
+            background: var(--burgundy-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px #6b1d2e30;
+        }
+
+        .button-outline {
+            background: var(--white);
+            color: var(--burgundy);
+            border-color: var(--border);
+        }
+
+        .button-outline:hover {
+            background: var(--pastel-pink-soft);
+            color: var(--burgundy-light);
+        }
+
+        /* General Sections */
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-heading {
+            color: var(--burgundy);
+            font-size: clamp(1.9rem, 4vw, 2.6rem);
+            margin-bottom: 12px;
+        }
+
+        .section-intro {
+            max-width: 680px;
+            color: var(--muted);
+            margin-bottom: 35px;
+        }
+
+        /* About Section */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 35px;
+            align-items: start;
+        }
+
+        .about-text h3 {
+            color: var(--burgundy);
+            margin-bottom: 14px;
+            font-size: 1.3rem;
+        }
+
+        .about-text p {
+            color: var(--muted);
+        }
+
+        .info-card {
+            padding: 28px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: var(--white);
+            box-shadow: 0 10px 35px #6b1d2e08;
+        }
+
+        .info-card h3 {
+            color: var(--burgundy);
+            margin-bottom: 10px;
+        }
+
+        .info-card > p {
+            color: var(--muted);
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .skill {
+            background: var(--pastel-pink);
+            color: var(--burgundy);
+            padding: 7px 13px;
+            border-radius: 30px;
+            font-size: 0.86rem;
+            font-weight: 600;
+        }
+
+        /* Projects Section */
+
+        .projects {
+            background: var(--background);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .project-card {
+            padding: 27px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            transition: transform 0.25s ease,
+                        box-shadow 0.25s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px #6b1d2e10;
+        }
+
+        .project-number {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            background: var(--pastel-pink);
+            color: var(--burgundy);
+            border-radius: 12px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .project-card h3 {
+            color: var(--burgundy);
+            margin-bottom: 12px;
+            font-size: 1.15rem;
+        }
+
+        .project-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+
+        .contact-box {
+            padding: 45px;
+            background: linear-gradient(135deg, #6b1d2e, #8b2740);
+            color: var(--white);
+            border-radius: 20px;
+        }
+
+        .contact-box h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 12px;
+        }
+
+        .contact-box p {
+            max-width: 600px;
+            color: #f9dce3;
+            margin-bottom: 22px;
+        }
+
+        .contact-box .button {
+            background: var(--pastel-pink);
+            color: var(--burgundy);
+            border-color: var(--pastel-pink);
+        }
+
+        .contact-box .button:hover {
+            background: #fdf0f3;
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 25px 0;
+            background: var(--burgundy-dark);
+            color: #f9dce3;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+
+        @media (max-width: 760px) {
+            nav {
+                flex-direction: column;
+                justify-content: center;
+                padding: 15px 0;
+                gap: 12px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px 20px;
+            }
+
+            .hero {
+                padding: 75px 0;
+            }
+
+            .about-grid,
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .contact-box {
+                padding: 28px;
+            }
+
+            h1 {
+                letter-spacing: -1px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .nav-links {
+                gap: 8px 14px;
+                font-size: 0.88rem;
+            }
+
+            .button {
+                padding: 11px 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="container" aria-label="Main navigation">
+
+            <a href="#home" class="logo">
+                Paula's<span>Portfolio.</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About Me</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container hero-content">
+
+                <div class="eyebrow">
+                    Student | Aspiring Web Developer
+                </div>
+
+                <h1>
+                    Hello, I'm <span>Paula.</span><br>
+                    I Build for the Web.
+                </h1>
+
+                <p>
+                    Welcome to my portfolio. I'm a student developing
+                    my skills in information technology and web
+                    development. I enjoy learning new technologies
+                    and turning ideas into clean, functional websites.
+                </p>
+
+                <a href="#projects" class="button">View My Projects</a>
+                <a href="#contact" class="button button-outline">Get in Touch</a>
+
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+
+                <h2 class="section-heading">About Me</h2>
+                <p class="section-intro">
+                    A little about who I am, what I'm learning, and what
+                    drives my interest in web development.
+                </p>
+
+                <div class="about-grid">
+
+                    <div class="about-text">
+                        <h3>My Journey</h3>
+                        <p>
+                            Hi, I'm Paula — a student with a growing passion for
+                            information technology and web development. I love
+                            the process of taking a blank page and turning it into
+                            something people can actually use and enjoy.
+                        </p>
+                        <p>
+                            I'm currently building my skills in HTML, CSS,Web development and
+                            JavaScript, and I'm always looking for new challenges
+                            that push me to learn and grow. When I'm not studying,
+                            you'll find me experimenting with small projects,
+                            reading about design, or refining my code one detail
+                            at a time.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Skills &amp; Tools</h3>
+                        <p>
+                            Technologies and areas I'm currently working with
+                            and developing.
+                        </p>
+
+                        <div class="skills">
+                            <span class="skill">HTML5</span>
+                            <span class="skill">CSS3</span>
+                            <span class="skill">JavaScript</span>
+                            <span class="skill">Responsive Design</span>
+                            <span class="skill">Git &amp; GitHub</span>
+                            <span class="skill">UI Basics</span>
+                            <span class="skill">Problem Solving</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects" id="projects">
+            <div class="container">
+
+                <h2 class="section-heading">Projects</h2>
+                <p class="section-intro">
+                    A selection of projects I've built while learning and
+                    practicing web development.
+                </p>
+
+                <div class="project-grid">
+
+                    <div class="project-card">
+                        <div class="project-number">01</div>
+                        <h3>Personal Portfolio</h3>
+                        <p>
+                            This very portfolio — a responsive site built from
+                            scratch with HTML and CSS, focusing on clean layout
+                            and a soft, modern color palette.
+                        </p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-number">02</div>
+                        <h3>To-Do List App</h3>
+                        <p>
+                            A simple task manager built with JavaScript that lets
+                            users add, complete, and remove tasks, practicing DOM
+                            manipulation and local storage.
+                        </p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-number">03</div>
+                        <h3>Landing Page</h3>
+                        <p>
+                            A responsive product landing page designed to
+                            practice flexbox, grid, and mobile-first layout
+                            techniques with an accessible structure.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+
+                <div class="contact-box">
+                    <h2>Let's Connect</h2>
+                    <p>
+                        I'm always open to feedback, collaboration, or just a
+                        friendly chat about web development. Feel free to reach
+                        out — I'd love to hear from you.
+                    </p>
+                    <a href="mailto:paulakoumazan@gmail.com" class="button">
+                        Email Me
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            &copy; 2026 Paula. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
